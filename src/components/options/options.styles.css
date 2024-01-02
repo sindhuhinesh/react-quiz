@@ -1,0 +1,20 @@
+.option {
+    width: calc(100% - 20px); /* Make the option full width with some padding */
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px; /* Add border-radius for a rounded appearance */
+    text-align: left;
+}
+  
+.option:hover {
+    background-color: #555; /* Change the background color on hover */
+}
+
+.optionCard {
+    width: 100%;
+}

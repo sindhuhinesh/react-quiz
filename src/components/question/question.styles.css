@@ -1,0 +1,64 @@
+/* Add these styles to your CSS file or in a style block in your component */
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Set a specific height for the questionContainer */
+    background-color: #333;
+    border: 2px solid white;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 800px; /* Increase the maximum width of the questionContainer */
+    margin: 0 auto; /* Center the questionContainer horizontally */
+    border-radius: 10px; /* Add border-radius for a rounded appearance */
+    margin-top: 10%;
+  }
+
+  
+
+  .questionCard {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .questionDiv {
+    width: 70%;
+  }
+  
+  .question {
+    color: white;
+    margin-top: 0;
+  }
+  
+  .questionNumber {
+    color: green;
+  } 
+
+  .questionNumber h4 {
+    margin-top: 0;
+  }
+  
+  .nextButton {
+    width: calc(100% - 20px); /* Make the nextButton full width with some padding */
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px; /* Add border-radius for a rounded appearance */
+    font-weight: bold;
+  }
+  
+  .nextButton:hover {
+    background-color: #007bff; /* Change the background color on hover */
+  } 
+
+  .nextQuextionCard {
+    width: 100%;
+    margin-top: 3%;
+  }
+  

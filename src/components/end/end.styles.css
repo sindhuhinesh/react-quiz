@@ -1,0 +1,46 @@
+/* Add these styles to your CSS file or in a style block in your component */
+
+.endContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 35vh; /* Set a specific height for the container */
+    background-color: green;
+    color: white;
+    max-width: 500px; /* Increase the maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 10px; /* Reduced padding */
+    box-sizing: border-box;
+    border-radius: 10px; /* Add border-radius for a rounded appearance */
+    margin-top: 15%;
+  }
+  
+  .endContainer h2 {
+    font-size: 2em; /* Adjust the font size as needed */
+    margin: 5px; /* Add some bottom margin for spacing */
+  }
+  
+  .endContainer h4 {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    margin: 5px; /* Add some bottom margin for spacing */
+  }
+  
+  .endContainer button {
+    margin-top: 20px; /* Reduced top margin for spacing */
+    background-color: white;
+    color: black; /* Change the text color */
+    padding: 8px 16px; /* Reduced padding */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add animation effect */
+    border-radius: 5px; /* Add border-radius for a rounded appearance */
+    font-weight: bold;
+  }
+  
+  .endContainer button:hover {
+    background-color: #fff; /* Change the background color on hover */
+    color: green; /* Change the text color on hover */
+    transform: scale(1.05); /* Add a slight scale effect on hover */
+  }
+  
