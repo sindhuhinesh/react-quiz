@@ -15,6 +15,10 @@
     background-color: #555; /* Change the background color on hover */
 }
 
+.option.clicked {
+    background-color: #00ff00; /* Replace with your desired background color */
+  }
+
 .optionCard {
     width: 100%;
 }

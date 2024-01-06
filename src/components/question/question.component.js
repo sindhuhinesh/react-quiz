@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Options from "../options/options.components";
 
 import { useNavigate } from 'react-router-dom';
-import { fetchQuestions } from '../../redux/questionsSlice';
+import { calculateMark, fetchQuestions, setSelectedAnswer } from '../../redux/questionsSlice';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import './question.styles.css';
 
@@ -13,13 +12,17 @@ const Question = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const optionsArray = [];
 
+    const selectedAnswer = useSelector((state) => state.quizQuestions.selectedAnswer);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         console.log("Effect triggered");
         dispatch(fetchQuestions());
-      }, [dispatch]);
+      }, [dispatch]);   
+      
+      
 
     const quizQuestions = useSelector((state) => state.quizQuestions.questionsList);
 
@@ -27,7 +30,6 @@ const Question = () => {
         if (currentQuestion < quizQuestions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
           } else {
-            // If it's the last question, navigate to the '/end' route
             navigate('/end');
           }
       };
@@ -38,11 +40,13 @@ const Question = () => {
 
     
     const newData = quizQuestions[currentQuestion].correct_answer;  
-    optionsArray.push(newData);
+    optionsArray.push({ data: newData, isCorrect: true });
 
-    quizQuestions[currentQuestion].incorrect_answers.map((data, index) => (
-        optionsArray.push(data)
-    ));  
+    quizQuestions[currentQuestion].incorrect_answers.map((data, index) => {
+        optionsArray.push({ data: data, isCorrect: false });
+        return null;
+    });   
+    
 
     const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -52,6 +56,20 @@ const Question = () => {
       };
     
     shuffleArray(optionsArray);
+
+    const handleCalculateMark = () => {
+        dispatch(calculateMark({optionsArray}));
+    }
+
+    const handleCombinedClick = () => {
+        handleCalculateMark();
+        handleNextQuestion();
+      };
+    
+    const handleOptionClick = (data) => {
+        dispatch(setSelectedAnswer(data))
+    }   
+    
 
     return(
         
@@ -65,16 +83,14 @@ const Question = () => {
                 </div>
             </div>
             {
-                optionsArray.map((data, index) => (
-                    <Options data={data} key={data} />
+                optionsArray.map((option, index) => (
+                    <Options option={option} id={index} key={index} onClick={() => handleOptionClick(option.data)} selectedOption={selectedAnswer}/>
                 ))
             }
             
 
             <div className="nextQuextionCard">
-                {/* <Link to='/end'> */}
-                    <button className="nextButton" onClick={handleNextQuestion}>Next Question</button>
-                {/* </Link> */}
+                <button className="nextButton" onClick={handleCombinedClick}>Next Question</button>
             </div>
         </div>
              
