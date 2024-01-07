@@ -12,8 +12,6 @@ const Question = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const optionsArray = [];
 
-    const selectedAnswer = useSelector((state) => state.quizQuestions.selectedAnswer);
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -49,6 +47,7 @@ const Question = () => {
     
 
     const shuffleArray = (array) => {
+        console.log("ee");
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];
@@ -84,7 +83,7 @@ const Question = () => {
             </div>
             {
                 optionsArray.map((option, index) => (
-                    <Options option={option} id={index} key={index} onClick={() => handleOptionClick(option.data)} selectedOption={selectedAnswer}/>
+                    <Options option={option} id={index} key={index} onClick={() => handleOptionClick(option.data)}  />
                 ))
             }
             

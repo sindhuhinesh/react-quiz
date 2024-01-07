@@ -48,8 +48,8 @@ const questionsSlice = createSlice({
 
       .addCase(fetchQuestions.fulfilled, (state, action) => {
         console.log("Success");
+        state.total_mark = 0;
         state.questionsList = action.payload.results;
-        console.log("Success"+JSON.stringify(state.questionsList, null, 2));
       })
 
       .addCase(fetchQuestions.rejected, (state, action) => {
