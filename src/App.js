@@ -12,9 +12,7 @@ function App() {
 
   return (
       <div className="App">
-          {/* {quizQuestions.map((data, index) => (
-                <h2 style={{ color: 'white', fontSize: '20px', fontWeight: 'bold' }}>{data.question}</h2>
-            ))} */}
+     
          <Routes>
            <Route path='/' element={ <Start /> }/>
            <Route path='questions' element={ <Question /> }/>
