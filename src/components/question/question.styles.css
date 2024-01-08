@@ -43,7 +43,7 @@
   
   .nextButton {
     width: calc(100% - 20px); /* Make the nextButton full width with some padding */
-    background-color: blue;
+    background-color: rgb(90, 90, 243);
     color: white;
     padding: 10px;
     border: none;
@@ -54,7 +54,7 @@
   }
   
   .nextButton:hover {
-    background-color: #007bff; /* Change the background color on hover */
+    background-color: #5ea1e9; /* Change the background color on hover */
   } 
 
   .nextQuextionCard {

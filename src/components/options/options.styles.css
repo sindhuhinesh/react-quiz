@@ -1,6 +1,6 @@
 .option {
     width: calc(100% - 20px); /* Make the option full width with some padding */
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: white;
     padding: 10px;
     margin: 5px 0;
@@ -12,7 +12,7 @@
 }
   
 .option:hover {
-    background-color: #555; /* Change the background color on hover */
+    background-color: #db7373; /* Change the background color on hover */
 }
 
 .option.clicked {
