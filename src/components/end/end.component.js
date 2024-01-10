@@ -6,13 +6,19 @@ import { useSelector } from "react-redux";
 
 const End = () => {
 
-    const total_mark = useSelector((state) => state.quizQuestions.total_mark);
-    const bgColorClassName = total_mark > 4 ? "greenBackground" : "redBackground";
+    const quizQuestions = useSelector((state) => state.quizQuestions.questionsList);    
+    const totalMark = useSelector((state) => state.quizQuestions.total_mark);
+
+    const maxMark = quizQuestions.length;
+
+    const percentage = (totalMark / maxMark) * 100;
+
+    const bgColorClassName = percentage > 40 ? "greenBackground" : "redBackground";
 
     return(
         <div className={`endContainer ${bgColorClassName}`}>
-            <h2>{total_mark > 4 ? 'Awesome' : 'Oops!'}</h2>
-            <h4>Your Score is {total_mark} out of 50</h4>
+            <h2>{percentage > 40 ? 'Awesome' : 'Oops!'}</h2>
+            <h4>Your Score is {totalMark} out of {maxMark}</h4>
             <Link to='/'>
                 <button className="startOver">Start Over</button>
             </Link>

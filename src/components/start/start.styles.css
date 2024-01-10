@@ -1,10 +1,10 @@
-.startCard {
+/* .startCard {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh; 
-}
+} */
 
 .title {
     color: #faf7f7; 
