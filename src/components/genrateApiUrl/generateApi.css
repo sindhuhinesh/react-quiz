@@ -1,0 +1,70 @@
+.generateQuestionCard {
+    width: 100%;
+    margin: 20px 20px 5px 20px;
+  }
+  
+  /* Label styles */
+  .titleLabel {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input and select styles */
+  .inputNumber,
+  .dropdownApi {
+    width: 100%; /* Take full width */
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styles */
+  .genrateButton {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .genrateButton:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  /* Animation for button */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .genrateButton:hover {
+    animation: pulse 0.5s ease-in-out infinite;
+  }
+  
+  /* Media queries for responsiveness */
+  @media only screen and (min-width: 600px) {
+    .inputNumber,
+    .dropdownApi {
+      width: calc(50% - 5px);
+      margin-right: 10px;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .inputNumber,
+    .dropdownApi {
+      width: calc(33.333% - 5px);
+      margin-right: 10px;
+    }
+  }
+  

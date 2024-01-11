@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Options from "../options/options.components";
+import Options from "../options/options";
 
 import { useNavigate } from 'react-router-dom';
 import { calculateMark, fetchQuestions, setSelectedAnswer } from '../../redux/questionsSlice';
 import { useDispatch, useSelector } from "react-redux";
 
-import './question.styles.css';
+import './question.css';
 
 const Question = () => {
     
@@ -15,11 +15,21 @@ const Question = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const {noOfQuestions, category, difficulty} = useSelector((state) => state.quizQuestions.apiData);
+
+
     useEffect(() => {
-        console.log("Effect triggered");
-        dispatch(fetchQuestions());
-      }, [dispatch]);   
-      
+        if (noOfQuestions) {
+            dispatch(fetchQuestions({
+                amount: noOfQuestions,
+                category: category,
+                difficulty: difficulty,
+            }));
+        } else {
+            // Redirect to the start page if apiData is not available
+            navigate('/');
+        }
+      }, [dispatch, noOfQuestions, category, difficulty, navigate]);    
       
 
     const quizQuestions = useSelector((state) => state.quizQuestions.questionsList);
@@ -47,7 +57,6 @@ const Question = () => {
     
 
     const shuffleArray = (array) => {
-        console.log("ee");
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];

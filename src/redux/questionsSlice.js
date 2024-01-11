@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchQuestions = createAsyncThunk("quizQuestions/fetchQuestions", async () => {
+export const fetchQuestions = createAsyncThunk("quizQuestions/fetchQuestions", async ({amount, category, difficulty}) => {
   try {
-    const response = await axios.get("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple");
+    console.log(amount);
+    const response = await axios.get("https://opentdb.com/api.php?amount="+amount+"&category="+category+"&difficulty="+difficulty+"&type=multiple");
     return response.data;
   } catch (error) {
     throw error;
@@ -15,10 +16,12 @@ const questionsSlice = createSlice({
   initialState: {
     questionsList: [],
     total_mark: 0,
-    selectedAnswer: ''
+    selectedAnswer: '',
+    apiData: {}
   },
 
   reducers: {
+
     calculateMark: (state, action) => {
         const optionsArray = action.payload.optionsArray;
         const selectedAnswer = state.selectedAnswer;
@@ -34,8 +37,13 @@ const questionsSlice = createSlice({
         state.selectedAnswer = '';
               
     },
+
     setSelectedAnswer: (state,action) => {
         state.selectedAnswer = action.payload;
+    },
+    
+    setApiData : (state,action) => {
+      state.apiData = action.payload;
     }
   },
 
@@ -58,5 +66,5 @@ const questionsSlice = createSlice({
   },
 });
 
-export const { calculateMark, setSelectedAnswer } = questionsSlice.actions;
+export const { calculateMark, setSelectedAnswer, setApiData } = questionsSlice.actions;
 export default questionsSlice.reducer;
