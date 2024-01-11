@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setApiData } from "../../redux/questionsSlice";
 import { useDispatch } from "react-redux";
 
-import './generate-api-url.css';
+import './generateApi.css';
 
 const GenerateApiUrl = () => {
 

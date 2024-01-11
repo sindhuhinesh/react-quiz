@@ -1,6 +1,6 @@
 import React from "react";
 
-import './options.styles.css';
+import './options.css';
 import { useSelector } from "react-redux";
 
 const Options = ({option, onClick }) => {

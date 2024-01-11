@@ -1,8 +1,8 @@
 import React from "react";
-import GenerateApiUrl from "../genrate-api-url/generate-api-url.component";
+import GenerateApiUrl from "../genrateApiUrl/generateApi";
 
 
-import './start.styles.css';
+import './start.css';
 
 const Start = () => {
     return(

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Options from "../options/options.components";
+import Options from "../options/options";
 
 import { useNavigate } from 'react-router-dom';
 import { calculateMark, fetchQuestions, setSelectedAnswer } from '../../redux/questionsSlice';
 import { useDispatch, useSelector } from "react-redux";
 
-import './question.styles.css';
+import './question.css';
 
 const Question = () => {
     

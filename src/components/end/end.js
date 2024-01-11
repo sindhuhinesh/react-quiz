@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import './end.styles.css';
+import './end.css';
 import { useSelector } from "react-redux";
 
 const End = () => {

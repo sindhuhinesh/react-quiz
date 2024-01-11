@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Start from './components/start/start.component';
-import Question from './components/question/question.component';
-import End from './components/end/end.component';
+import Start from './components/start/start';
+import Question from './components/question/question';
+import End from './components/end/end';
 
 import './App.css';
 
